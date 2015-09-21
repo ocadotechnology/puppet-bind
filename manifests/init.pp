@@ -31,6 +31,12 @@ class bind (
         before => Package['bind'],
     }
 
+    @package { 'bind-dyndb-ldap':
+        ensure => latest,
+        name   => $::bind::params::dyndb_ldap_package,
+        before => Package['bind'],
+    }
+
     package { 'bind':
         ensure => latest,
         name   => $::bind::params::bind_package,
@@ -57,7 +63,10 @@ class bind (
         }
     }
 
-    file { "${confdir}/zones":
+    file { [
+        "${confdir}/zones",
+        "${confdir}/dynamicdbs",
+        ]:
         ensure  => directory,
         mode    => '2755',
     }
