@@ -4,6 +4,7 @@ define bind::view (
     $match_clients                = 'any',
     $match_destinations           = '',
     $zones                        = [],
+    $dynamic_dbs                  = [],
     $recursion                    = true,
     $recursion_match_clients      = 'any',
     $recursion_match_destinations = '',

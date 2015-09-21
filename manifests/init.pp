@@ -57,7 +57,10 @@ class bind (
         }
     }
 
-    file { "${confdir}/zones":
+    file { [
+        "${confdir}/zones",
+        "${confdir}/dynamicdbs",
+        ]:
         ensure  => directory,
         mode    => '2755',
     }
