@@ -2,7 +2,7 @@
 # This file managed by puppet - changes will be lost
 dynamic-db "<%= @dbname %>" {
 	library "ldap.so";
-	arg "uri <%= @ldap_uri %>";
+	arg "uri <%= @uri %>";
 	arg "base <%= @base_dn %>";
 <%- if @connections != '' -%>
 	arg "connections <%= @connections %>";

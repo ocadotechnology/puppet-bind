@@ -24,7 +24,7 @@ define bind::dynamicdb::ldap (
 
     Package <| title == 'bind-dyndb-ldap' |>
 
-    exec { "rndc reconfig (dynamic db ${dbname})":
+    exec { "rndc reconfig (dynamic db LDAP ${dbname})":
         command     => '/usr/sbin/rndc reconfig',
         user        => $::bind::params::bind_user,
         refreshonly => true,
@@ -36,8 +36,8 @@ define bind::dynamicdb::ldap (
         owner   => 'root',
         group   => $::bind::params::bind_group,
         mode    => '0644',
-        content => template('bind/dynamicdb.conf.erb'),
-        notify  => Exec["rndc reconfig (dynamic db ${dbname})"],
+        content => template('bind/dynamicdb/ldap.conf.erb'),
+        notify  => Exec["rndc reconfig (dynamic db LDAP ${dbname})"],
         require => Package['bind'],
     }
 }
