@@ -20,7 +20,9 @@ define bind::dynamicdb::ldap (
     $dynamic_updates      = true,
     $sync_ptr             = false
 ) {
-    include bind
+    include ::bind
+
+    Package <| title == 'bind-dyndb-ldap' |>
 
     exec { "rndc reconfig (dynamic db ${dbname})":
         command     => '/usr/sbin/rndc reconfig',
