@@ -7,6 +7,7 @@ class bind::params (
     $bind_package,
     $bind_service,
     $nsupdate_package,
+    $dyndb_ldap_package,
 ) {
     unless $supported {
         fail('Platform is not supported')
