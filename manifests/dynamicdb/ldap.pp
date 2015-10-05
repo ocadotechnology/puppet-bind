@@ -35,10 +35,7 @@ define bind::dynamicdb::ldap (
         group   => $::bind::params::bind_group,
         mode    => '0644',
         content => template('bind/dynamicdb.conf.erb'),
-        notify  => Service['bind'],
-        require => [
-            Package['bind'],
-            Exec["rndc reconfig (dynamic db ${dbname})"],
-        ],
+        notify  => Exec["rndc reconfig (dynamic db ${dbname})"],
+        require => Package['bind'],
     }
 }
