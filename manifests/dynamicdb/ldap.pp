@@ -35,7 +35,7 @@ define bind::dynamicdb::ldap (
         ensure  => present,
         owner   => 'root',
         group   => $::bind::params::bind_group,
-        mode    => '0644',
+        mode    => '0640',
         content => template('bind/dynamicdb/ldap.conf.erb'),
         notify  => Exec["rndc reconfig (dynamic db LDAP ${dbname})"],
         require => Package['bind'],
