@@ -34,6 +34,9 @@ view "<%= @name %>" {
 	};
 <%-   end -%>
 <%- end -%>
+<%- if @empty_zones != '' -%>
+	empty-zones-enable <%= @empty_zones ? 'yes' : 'no' %>;
+<%- end -%>
 <%- if @also_notify and @also_notify != '' -%>
 	also-notify {
 <%-     Array(@also_notify).each do |server| -%>
