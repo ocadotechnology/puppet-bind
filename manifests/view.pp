@@ -9,6 +9,7 @@ define bind::view (
     $recursion_match_clients      = 'any',
     $recursion_match_destinations = '',
     $recursion_match_only         = false,
+    $empty_zones                  = '',
     $notify_source                = '',
     $also_notify                  = [],
     $order                        = '10',
