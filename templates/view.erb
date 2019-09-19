@@ -14,6 +14,17 @@ view "<%= @name %>" {
 <%-   end -%>
 	};
 <%- end -%>
+<%- if @forwarders -%>
+<%-   if @forwarders.length == 0 -%>
+	forwarders {};
+<%-   else -%>
+	forwarders {
+<%-     Array(@forwarders).each do |forwarder| -%>
+		<%= forwarder %>;
+<%-     end -%>
+	};
+<%-   end -%>
+<%- end -%>
 	recursion <%= @recursion ? 'yes' : 'no' %>;
 <%- if @recursion_match_only -%>
 	match-recursive-only yes;
