@@ -55,6 +55,12 @@ view "<%= @name %>" {
 <%-     end -%>
 	};
 <%- end -%>
+<%- if @query_source -%>
+	query-source address <%= @query_source %>;
+<%- end -%>
+<%- if @transfer_source -%>
+	transfer-source <%= @transfer_source %>;
+<%- end -%>
 <%- if @notify_source and @notify_source != '' -%>
 	notify-source <%= @notify_source %>;
 <%- end -%>
