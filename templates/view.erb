@@ -55,6 +55,13 @@ view "<%= @name %>" {
 <%-     end -%>
 	};
 <%- end -%>
+<%- if @allow_transfers -%>
+        allow-transfer {
+<%-   @allow_transfers.each do |allow_transfer| -%>
+                <%= allow_transfer %>;
+<%-   end -%>
+        };
+<%- end -%>
 <%- if @query_source -%>
 	query-source address <%= @query_source %>;
 <%- end -%>
